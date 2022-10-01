@@ -1,5 +1,5 @@
-const fs = require('fs');
-const csvtojson = require("csvtojson");
+import fs from 'fs';
+import csvtojson from 'csvtojson';
 
 function convertFile(fileName: string) {
     csvtojson()
