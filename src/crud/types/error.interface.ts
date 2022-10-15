@@ -4,6 +4,6 @@ export interface ErrorObject {
 }
 
 export interface Error {
-  path: (string | number)[];
+  path: Array<string | number>
   message: string
 }

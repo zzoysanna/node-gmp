@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import * as UserService from '../services/user.service'
 import * as Validation from '../middleware/validation.middleware'
 import Joi from 'joi'
-import { User } from '../models'
+import { User } from '../types'
 
 export const router = express.Router()
 
