@@ -1,12 +1,15 @@
 import express, { Request, Response } from 'express'
-import * as UserService from '../services/user.service'
+import UserService from '../services/user.service'
 import * as Validation from '../middleware/validation.middleware'
 import Joi from 'joi'
 import { User } from '../types'
+import UserMapper from '../services/user.mapper'
 
 export const router = express.Router()
+const userService = new UserService(new UserMapper())
 
 const NO_USER_MSG = 'No such user'
+const EMPTY_STR_MSG = 'Empty string'
 const DEFAILT_LIMIT = 5
 
 const userSchema: Joi.ObjectSchema<User> = Joi.object().keys({
@@ -20,19 +23,19 @@ const getErrorMessage = (error: unknown): { message: string } => {
   return { message }
 }
 
-router.post('/createUser', Validation.validateSchema(userSchema), (req: Request, res: Response) => {
+router.post('/createUser', Validation.validateSchema(userSchema), async (req: Request, res: Response) => {
   try {
-    const newUser = UserService.addNewUser(req.body)
+    const newUser = await userService.addNewUser(req.body)
     res.status(200).json(newUser.id)
   } catch (e: unknown) {
     res.status(500).send(getErrorMessage(e))
   }
 })
 
-router.get('/user/:id', (req: Request, res: Response) => {
+router.get('/user/:id', async (req: Request, res: Response) => {
   const { id } = req.params
   try {
-    const currentUser = UserService.findUserById(id)
+    const currentUser = await userService.findUserById(id)
     if (currentUser != null) {
       res.status(200).json(currentUser.isDeleted ? NO_USER_MSG : currentUser)
     } else {
@@ -43,13 +46,13 @@ router.get('/user/:id', (req: Request, res: Response) => {
   }
 })
 
-router.put('/user/:id', Validation.validateSchema(userSchema), (req: Request, res: Response) => {
+router.put('/user/:id', Validation.validateSchema(userSchema), async (req: Request, res: Response) => {
   const { id } = req.params
   try {
-    const currentUser = UserService.findUserById(id)
+    const currentUser = await userService.findUserById(id)
     if (currentUser != null) {
-      UserService.updateUser(id, req.body)
-      res.sendStatus(200)
+      const result = await userService.updateUser(id, req.body)
+      res.status(200).json(result)
     } else {
       res.status(404).send(NO_USER_MSG)
     }
@@ -58,13 +61,13 @@ router.put('/user/:id', Validation.validateSchema(userSchema), (req: Request, re
   }
 })
 
-router.delete('/user/:id', (req: Request, res: Response) => {
+router.delete('/user/:id', async (req: Request, res: Response) => {
   const { id } = req.params
   try {
-    const currentUser = UserService.findUserById(id)
+    const currentUser = await userService.findUserById(id)
     if (currentUser != null) {
-      UserService.deleteUser(id)
-      res.sendStatus(200)
+      const result = await userService.deleteUser(id)
+      !!result && res.sendStatus(200)
     } else {
       res.status(404).send(NO_USER_MSG)
     }
@@ -73,15 +76,17 @@ router.delete('/user/:id', (req: Request, res: Response) => {
   }
 })
 
-router.get('/searchUsers', (req: Request, res: Response) => {
+router.get('/searchUsers', async (req: Request, res: Response) => {
   const { loginSubstring, limit } = req.query
   try {
     if (loginSubstring !== undefined && typeof loginSubstring === 'string') {
-      const users = UserService.getAutoSuggestUsers(
+      const users = await userService.getAutoSuggestUsers(
         loginSubstring,
         limit !== undefined ? Number(limit) : DEFAILT_LIMIT
       )
       res.status(200).json(users)
+    } else {
+      res.status(404).send(EMPTY_STR_MSG)
     }
   } catch (e) {
     res.status(500).send(getErrorMessage(e))
