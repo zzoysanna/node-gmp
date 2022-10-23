@@ -1,35 +1,24 @@
-import { User, UserInput } from '../types'
-import * as userDal from '../db/user.dal'
-import UserMapper from './user.mapper'
+import { UserInput, UserDbFields } from '../types';
+import * as userDal from '../db/user.dal';
 
 export default class UserService {
-  mapper: UserMapper
-  constructor (mapper: UserMapper) {
-    this.mapper = mapper
+  static async getAutoSuggestUsers(loginSubstring: string, limit: number): Promise<UserDbFields[]> {
+    return userDal.getAll({ loginSubstring, limit });
   }
 
-  async getAutoSuggestUsers (loginSubstring: string, limit: number): Promise<User[]> {
-    const filteredUsers = await userDal.getAll({ loginSubstring, limit })
-    return filteredUsers.map(item => this.mapper.toDomain(item))
+  static async findUserById(id: string): Promise<UserDbFields | undefined> {
+    return userDal.getById(id);
   }
 
-  async findUserById (id: string): Promise<User | undefined> {
-    return this.mapper.toDomain(await userDal.getById(id))
+  static async addNewUser(userData: UserInput): Promise<UserDbFields> {
+    return userDal.create(userData);
   }
 
-  async addNewUser (userData: UserInput): Promise<User> {
-    return this.mapper.toDomain(
-      await userDal.create(userData)
-    )
+  static async deleteUser(id: string): Promise<boolean> {
+    return userDal.deleteById(id);
   }
 
-  async deleteUser (id: string): Promise<boolean> {
-    return await userDal.deleteById(id)
-  }
-
-  async updateUser (id: string, userData: UserInput): Promise<User> {
-    return this.mapper.toDomain(
-      await userDal.update(id, userData)
-    )
+  static async updateUser(id: string, userData: UserInput): Promise<UserDbFields> {
+    return userDal.update(id, userData);
   }
 }

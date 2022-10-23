@@ -1,94 +1,97 @@
-import express, { Request, Response } from 'express'
-import UserService from '../services/user.service'
-import * as Validation from '../middleware/validation.middleware'
-import Joi from 'joi'
-import { User } from '../types'
-import UserMapper from '../services/user.mapper'
+import express, { Request, Response } from 'express';
+import Joi from 'joi';
+import UserController from '../controllers/user.controller';
+import * as Validation from '../middleware/validation.middleware';
+import { User } from '../types';
 
-export const router = express.Router()
-const userService = new UserService(new UserMapper())
+export const router = express.Router();
 
-const NO_USER_MSG = 'No such user'
-const EMPTY_STR_MSG = 'Empty string'
-const DEFAILT_LIMIT = 5
+const NO_USER_MSG = 'No such user';
+const EMPTY_STR_MSG = 'Empty string';
+const DEFAILT_LIMIT = 5;
 
 const userSchema: Joi.ObjectSchema<User> = Joi.object().keys({
   login: Joi.string().alphanum().required(),
   password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/).required(),
-  age: Joi.number().integer().min(4).max(130).required()
-})
+  age: Joi.number().integer().min(4).max(130)
+    .required(),
+});
 
 const getErrorMessage = (error: unknown): { message: string } => {
-  const message = error instanceof Error ? error.message : String(error)
-  return { message }
-}
+  const message = error instanceof Error ? error.message : String(error);
+  return { message };
+};
 
 router.post('/createUser', Validation.validateSchema(userSchema), async (req: Request, res: Response) => {
   try {
-    const newUser = await userService.addNewUser(req.body)
-    res.status(200).json(newUser.id)
+    const newUser = await UserController.addNewUser(req.body);
+    res.status(200).json(newUser.id);
   } catch (e: unknown) {
-    res.status(500).send(getErrorMessage(e))
+    res.status(500).send(getErrorMessage(e));
   }
-})
+});
 
 router.get('/user/:id', async (req: Request, res: Response) => {
-  const { id } = req.params
+  const { id } = req.params;
   try {
-    const currentUser = await userService.findUserById(id)
+    const currentUser = await UserController.findUserById(id);
     if (currentUser != null) {
-      res.status(200).json(currentUser.isDeleted ? NO_USER_MSG : currentUser)
+      res.status(200).json(currentUser);
     } else {
-      res.status(404).send(NO_USER_MSG)
+      res.status(404).send(NO_USER_MSG);
     }
   } catch (e: unknown) {
-    res.status(500).send(getErrorMessage(e))
+    res.status(500).send(getErrorMessage(e));
   }
-})
+});
 
 router.put('/user/:id', Validation.validateSchema(userSchema), async (req: Request, res: Response) => {
-  const { id } = req.params
+  const { id } = req.params;
   try {
-    const currentUser = await userService.findUserById(id)
+    const currentUser = await UserController.findUserById(id);
     if (currentUser != null) {
-      const result = await userService.updateUser(id, req.body)
-      res.status(200).json(result)
+      const result = await UserController.updateUser(id, req.body);
+      res.status(200).json(result);
     } else {
-      res.status(404).send(NO_USER_MSG)
+      res.status(404).send(NO_USER_MSG);
     }
   } catch (e: unknown) {
-    res.status(500).send(getErrorMessage(e))
+    res.status(500).send(getErrorMessage(e));
   }
-})
+});
 
 router.delete('/user/:id', async (req: Request, res: Response) => {
-  const { id } = req.params
+  const { id } = req.params;
   try {
-    const currentUser = await userService.findUserById(id)
+    const currentUser = await UserController.findUserById(id);
     if (currentUser != null) {
-      const result = await userService.deleteUser(id)
-      !!result && res.sendStatus(200)
+      const result = await UserController.deleteUser(id);
+      if (result) {
+        res.sendStatus(200);
+      }
     } else {
-      res.status(404).send(NO_USER_MSG)
+      res.status(404).send(NO_USER_MSG);
     }
   } catch (e) {
-    res.status(500).send(getErrorMessage(e))
+    res.status(500).send(getErrorMessage(e));
   }
-})
+});
 
 router.get('/searchUsers', async (req: Request, res: Response) => {
-  const { loginSubstring, limit } = req.query
+  const { loginSubstring, limit } = req.query;
   try {
     if (loginSubstring !== undefined && typeof loginSubstring === 'string') {
-      const users = await userService.getAutoSuggestUsers(
+      const users = await UserController.getAutoSuggestUsers(
         loginSubstring,
-        limit !== undefined ? Number(limit) : DEFAILT_LIMIT
-      )
-      res.status(200).json(users)
+        limit !== undefined ? Number(limit) : DEFAILT_LIMIT,
+      );
+      res.status(200).json(users);
     } else {
-      res.status(404).send(EMPTY_STR_MSG)
+      res.status(404).send(EMPTY_STR_MSG);
     }
   } catch (e) {
-    res.status(500).send(getErrorMessage(e))
+    res.status(500).send(getErrorMessage(e));
   }
-})
+});
+
+export default router;
