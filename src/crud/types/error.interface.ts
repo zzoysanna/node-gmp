@@ -1,6 +1,7 @@
 export interface ErrorObject {
-  status: string
-  errors: Error[]
+  status?: number | string;
+  statusCode?: number;
+  errors?: Error[]
 }
 
 export interface Error {

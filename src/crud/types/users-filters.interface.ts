@@ -1,4 +1,4 @@
 export interface UsersFilters {
-  loginSubstring: string
+  loginSubstring: string;
   limit: number
 }
