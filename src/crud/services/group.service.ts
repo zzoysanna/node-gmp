@@ -30,4 +30,8 @@ export default class GroupService {
       await groupDal.update(id, data),
     );
   }
+
+  static async addUsersToGroup(groupId: string, userIds: string[]): Promise<void> {
+    return groupDal.addUsersToGroup(groupId, userIds);
+  }
 }

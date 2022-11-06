@@ -1,6 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelizeConnection from '../db/config';
 import { GroupDbFields, GroupInput } from '../types';
+import UserModel from './user.model';
 
 class GroupModel extends Model<GroupDbFields, GroupInput> implements GroupDbFields {
   declare id: string;
@@ -8,6 +9,8 @@ class GroupModel extends Model<GroupDbFields, GroupInput> implements GroupDbFiel
   declare name: string;
 
   declare permissions: string[];
+
+  declare addUserModels: Function;
 }
 
 GroupModel.init(
@@ -15,6 +18,7 @@ GroupModel.init(
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
+      onDelete: 'cascade',
     },
     name: {
       type: DataTypes.STRING,
@@ -30,6 +34,24 @@ GroupModel.init(
     tableName: 'groups',
     sequelize: sequelizeConnection,
   },
+);
+
+const UserGroup = sequelizeConnection.define('user_groups', {}, {
+  timestamps: false,
+});
+UserModel.belongsToMany(GroupModel, {
+  through: UserGroup,
+  onDelete: 'cascade',
+  hooks: true,
+});
+GroupModel.belongsToMany(UserModel, {
+  through: UserGroup,
+  onDelete: 'cascade',
+  hooks: true,
+});
+
+UserGroup.sync().catch(
+  (error) => console.error(error),
 );
 
 GroupModel.sync().catch(

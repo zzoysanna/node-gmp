@@ -10,12 +10,6 @@ class UserModel extends Model<UserDbFields, UserInput> implements UserDbFields {
   declare password: string;
 
   declare age: number;
-
-  readonly createdAt: Date | undefined;
-
-  readonly updatedAt: Date | undefined;
-
-  readonly deletedAt: Date | undefined;
 }
 
 UserModel.init(
@@ -24,6 +18,7 @@ UserModel.init(
       type: DataTypes.INTEGER.UNSIGNED,
       autoIncrement: true,
       primaryKey: true,
+      onDelete: 'cascade',
     },
     login: {
       type: DataTypes.STRING,
@@ -39,9 +34,8 @@ UserModel.init(
     },
   },
   {
-    timestamps: true,
+    timestamps: false,
     tableName: 'users',
-    paranoid: true,
     sequelize: sequelizeConnection,
   },
 );

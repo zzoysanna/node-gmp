@@ -45,4 +45,14 @@ export default class GroupController {
       res.status(404).send((e as Error).message);
     }
   }
+
+  static async addToGroup(req: Request, res: Response): Promise<void> {
+    const { groupId, userIds } = req.body;
+    try {
+      await GroupService.addUsersToGroup(groupId, userIds);
+      res.sendStatus(200);
+    } catch (e: unknown) {
+      res.status(404).send((e as Error).message);
+    }
+  }
 }

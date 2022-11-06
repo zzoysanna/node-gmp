@@ -13,4 +13,6 @@ router.put('/group/:id', GroupController.updateGroup);
 
 router.delete('/group/:id', GroupController.deleteGroup);
 
+router.post('/addUsersToGroup', GroupController.addToGroup);
+
 export default router;
