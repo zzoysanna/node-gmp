@@ -3,11 +3,11 @@ import GroupController from '../controllers/group.controller';
 
 const router = express.Router();
 
-router.post('/createGroup', GroupController.createGroup);
+router.post('/create', GroupController.createGroup);
 
 router.get('/group/:id', GroupController.findGroup);
 
-router.get('/getAllGroups', GroupController.getAllGroups);
+router.get('/getAll', GroupController.getAllGroups);
 
 router.put('/group/:id', GroupController.updateGroup);
 

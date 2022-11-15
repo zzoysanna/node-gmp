@@ -1,6 +1,5 @@
 import express from 'express';
-import userRouter from './routes/user.routes';
-import groupRouter from './routes/group.routes';
+import subroutes from './routes';
 import { clientErrorHandler, notFoundHandler } from './middleware';
 
 const app = express();
@@ -13,8 +12,7 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-app.use('/', userRouter);
-app.use('/', groupRouter);
+app.use('/api', subroutes);
 
 app.use(clientErrorHandler);
 app.use(notFoundHandler);

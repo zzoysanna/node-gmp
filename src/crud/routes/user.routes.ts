@@ -13,7 +13,7 @@ const userSchema: Joi.ObjectSchema<User> = Joi.object().keys({
     .required(),
 });
 
-router.post('/createUser', Validation.validateSchema(userSchema), UserController.createNewUser);
+router.post('/create', Validation.validateSchema(userSchema), UserController.createNewUser);
 
 router.get('/user/:id', UserController.findUser);
 
@@ -21,6 +21,6 @@ router.put('/user/:id', Validation.validateSchema(userSchema), UserController.up
 
 router.delete('/user/:id', UserController.deleteUser);
 
-router.get('/searchUsers', UserController.searchUsers);
+router.get('/search', UserController.searchUsers);
 
 export default router;
