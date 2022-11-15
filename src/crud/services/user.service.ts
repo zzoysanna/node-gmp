@@ -1,9 +1,11 @@
 import { UserInput, User } from '../types';
 import UserMapper from '../mappers/user.mapper';
 import * as userDal from '../db/user.dal';
+import { Loggable } from '../utils';
 
 const DEFAILT_LIMIT = 5;
 
+@Loggable()
 export default class UserService {
   static async getAutoSuggestUsers(loginSubstring: string, limit?: unknown): Promise<User[]> {
     const filteredUsers = await userDal.getAll({

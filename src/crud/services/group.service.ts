@@ -2,7 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { GroupInput, GroupDbFields, Group } from '../types';
 import GroupMapper from '../mappers/group.mapper';
 import * as groupDal from '../db/group.dal';
+import { Loggable } from '../utils';
 
+@Loggable()
 export default class GroupService {
   static async getAllGroups(): Promise<Group[]> {
     const groups = await groupDal.getAll();

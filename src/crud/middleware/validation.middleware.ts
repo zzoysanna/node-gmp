@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import Joi from 'joi';
 import { User, ErrorObject } from '../types';
 
@@ -12,13 +12,13 @@ const errorResponse = (schemaErrors: Joi.ValidationErrorItem[]): ErrorObject => 
 
 export const validateSchema = (
   schema: Joi.ObjectSchema<User>,
-) => (req: Request, res: Response, next: Function) => {
+) => (req: Request, res: Response, next: NextFunction) => {
   const { error } = schema.validate(req.body, {
     abortEarly: false,
     allowUnknown: false,
   });
   if (error?.isJoi !== undefined) {
-    res.status(400).json(errorResponse(error.details));
+    next(errorResponse(error.details));
   } else {
     next();
   }

@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { getErrorMessage } from '../utils';
 import { ErrorObject } from '../types';
+import logger from '../utils/logger';
 
 export const clientErrorHandler = (
   error: ErrorObject,
@@ -9,6 +10,10 @@ export const clientErrorHandler = (
   next: NextFunction,
 ) => {
   const status = error.statusCode || Number(error.status) || 500;
-  response.status(status).send(getErrorMessage(error));
+  logger.error(
+    `${request.method} ${request.url} failed. `
+      + `Error status code ${status}, error message "${getErrorMessage(error).message}"`,
+  );
+  response.status(status).send(error);
 };
 export default clientErrorHandler;

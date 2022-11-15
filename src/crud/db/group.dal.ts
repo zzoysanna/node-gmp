@@ -2,6 +2,7 @@ import GroupModel from '../models/group.model';
 import UserModel from '../models/user.model';
 import { GroupInput, GroupOutput } from '../types';
 import sequelizeConnection from './config';
+import { CustomException } from '../utils';
 
 const NO_GROUP_MSG = 'No such group';
 const TRANSACTION_ERR_MSG = 'Transaction failed';
@@ -14,7 +15,7 @@ export const create = async (payload: GroupInput): Promise<GroupOutput> => {
 export const getById = async (id: string): Promise<GroupOutput> => {
   const group = await GroupModel.findByPk(id);
   if (group == null) {
-    throw new Error(NO_GROUP_MSG);
+    throw new CustomException(NO_GROUP_MSG, 404);
   }
   return group.toJSON();
 };
@@ -22,7 +23,7 @@ export const getById = async (id: string): Promise<GroupOutput> => {
 export const update = async (id: string, payload: GroupInput): Promise<GroupOutput> => {
   const group = await GroupModel.findByPk(id);
   if (group == null) {
-    throw new Error(NO_GROUP_MSG);
+    throw new CustomException(NO_GROUP_MSG, 404);
   }
   const updatedGroup = await (group).update(payload);
   return updatedGroup.toJSON();
@@ -31,7 +32,7 @@ export const update = async (id: string, payload: GroupInput): Promise<GroupOutp
 export const deleteById = async (id: string): Promise<boolean> => {
   const group = await GroupModel.findByPk(id);
   if (group == null) {
-    throw new Error(NO_GROUP_MSG);
+    throw new CustomException(NO_GROUP_MSG, 404);
   }
   const deletedGroupCount = await GroupModel.destroy({
     where: { id },
@@ -48,11 +49,11 @@ export const addUsersToGroup = async (groupId: string, userIds: string[]): Promi
       const promises = userIds.map(async (id) => UserModel.findByPk(id));
       const users = await Promise.all(promises);
       if (group == null) {
-        throw new Error(NO_GROUP_MSG);
+        throw new CustomException(NO_GROUP_MSG, 404);
       }
       return group.addUserModels(users);
     });
   } catch (error: unknown) {
-    throw new Error(TRANSACTION_ERR_MSG);
+    throw new CustomException(TRANSACTION_ERR_MSG, 500);
   }
 };
