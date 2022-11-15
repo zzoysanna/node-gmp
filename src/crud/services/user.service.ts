@@ -1,101 +1,36 @@
-import { v4 as uuidv4 } from 'uuid'
-import { User } from '../types'
+import { UserInput, User } from '../types';
+import UserMapper from '../mappers/user.mapper';
+import * as userDal from '../db/user.dal';
 
-export const users: User[] = [
-  {
-    login: 'test',
-    age: 35,
-    password: 'pass1',
-    id: '5',
-    isDeleted: false
-  },
-  {
-    login: 'anytest',
-    age: 35,
-    password: 'pass1',
-    id: '4',
-    isDeleted: false
-  },
-  {
-    login: 'my Test',
-    age: 35,
-    password: 'pass1',
-    id: '3',
-    isDeleted: false
-  },
-  {
-    login: 'my Test 1',
-    age: 35,
-    password: 'pass1',
-    id: '6',
-    isDeleted: false
-  },
-  {
-    login: 'b Test 2',
-    age: 35,
-    password: 'pass1',
-    id: '7',
-    isDeleted: false
-  },
-  {
-    login: 'zzz Test 3',
-    age: 35,
-    password: 'pass1',
-    id: '8',
-    isDeleted: false
-  },
-  {
-    login: 'my Test 44',
-    age: 35,
-    password: 'pass1',
-    id: '9',
-    isDeleted: false
-  },
-  {
-    login: 'anna',
-    age: 35,
-    password: 'pass1',
-    id: '2',
-    isDeleted: false
+const DEFAILT_LIMIT = 5;
+
+export default class UserService {
+  static async getAutoSuggestUsers(loginSubstring: string, limit?: unknown): Promise<User[]> {
+    const filteredUsers = await userDal.getAll({
+      loginSubstring,
+      limit: limit !== undefined ? Number(limit) : DEFAILT_LIMIT,
+    });
+    return filteredUsers.map((item) => UserMapper.toDomain(item));
   }
-]
 
-export const addNewUser = (userData: Pick<User, 'login' | 'password' | 'age'>): User => {
-  const newUser: User = {
-    ...userData,
-    id: uuidv4(),
-    isDeleted: false
+  static async findUserById(id: string): Promise<User | undefined> {
+    const user = await userDal.getById(id);
+    return user ? UserMapper.toDomain(user) : undefined;
   }
-  users.push(newUser)
-  return newUser
-}
 
-export const updateUser = (id: string, userData: Partial<User>): void => {
-  const currentUser = findUserById(id)
-  if (currentUser != null) {
-    const { login, password, age, isDeleted } = currentUser
-    users[users.indexOf(currentUser)] = {
-      id,
-      isDeleted,
-      login: userData.login ?? login,
-      password: userData.password ?? password,
-      age: userData.age ?? age
-    }
+  static async addNewUser(userData: UserInput): Promise<User> {
+    return UserMapper.toDomain(
+      await userDal.create(userData),
+    );
   }
-}
 
-export const deleteUser = (id: string): void => {
-  const currentUser = findUserById(id)
-  if (currentUser != null) {
-    currentUser.isDeleted = true
+  static async deleteUser(id: string): Promise<boolean> {
+    return userDal.deleteById(id);
   }
-}
 
-export const findUserById = (id: string): User | undefined => users.find(user => user.id === id)
-
-export const getAutoSuggestUsers = (loginSubstring: string, limit: number): User[] => {
-  const filteredUsers = [...users]
-    .filter(user => user.login.toLowerCase().includes(loginSubstring.toLowerCase()))
-    .sort((a, b) => a.login.localeCompare(b.login))
-  return filteredUsers.slice(0, limit)
+  static async updateUser(id: string, userData: UserInput): Promise<User> {
+    return UserMapper.toDomain(
+      await userDal.update(id, userData),
+    );
+  }
 }
