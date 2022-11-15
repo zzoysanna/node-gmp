@@ -1,0 +1,118 @@
+--- info ---: Nov-15-2022 19:53:13: -------------------  Hello, Winston!
+--- info ---: Nov-15-2022 19:53:42: UserService.getAutoSuggestUsers called with [test,2]
+--- info ---: Nov-15-2022 19:53:42: UserService.getAutoSuggestUsers, exiting 1ms
+--- info ---: Nov-15-2022 19:54:04: GroupService.getAllGroups called with []
+--- info ---: Nov-15-2022 19:54:04: GroupService.getAllGroups, exiting 1ms
+--- info ---: Nov-15-2022 19:55:45: GroupService.findGroupById called with [9e9798f3-99b2-4352-b149-f6d0deec400e]
+--- info ---: Nov-15-2022 19:55:45: GroupService.findGroupById, exiting 0ms
+--- info ---: Nov-15-2022 19:56:42: GroupService.updateGroup called with [9e9798f3-99b2-4352-b149-f6d0deec400e,[object Object]]
+--- info ---: Nov-15-2022 19:56:42: GroupService.updateGroup, exiting 0ms
+--- info ---: Nov-15-2022 19:58:06: GroupService.updateGroup called with ["9e9798f3-99b2-4352-b149-f6d0deec400e",{"name":"manager","permissions":["READ","WRITE","UPDATE"]}]
+--- info ---: Nov-15-2022 19:58:06: GroupService.updateGroup, exiting 2ms
+--- info ---: Nov-15-2022 20:04:40: UserService.getAutoSuggestUsers called with ["test","2"]
+--- info ---: Nov-15-2022 20:04:40: UserService.getAutoSuggestUsers, exiting 1ms
+--- info ---: Nov-15-2022 20:24:35: UserService.findUserById called with ["sdsdfsdfdsf"]
+--- info ---: Nov-15-2022 20:24:35: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 20:25:03: UserService.findUserById called with ["122"]
+--- info ---: Nov-15-2022 20:25:03: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 20:26:59: UserService.findUserById called with ["sdsdfsdf"]
+--- info ---: Nov-15-2022 20:26:59: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 20:27:53: UserService.findUserById called with ["sdasdasd"]
+--- info ---: Nov-15-2022 20:27:53: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 20:28:25: UserService.findUserById called with ["sdasdasd"]
+--- info ---: Nov-15-2022 20:28:25: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 20:30:18: UserService.findUserById called with ["sdasdasd"]
+--- info ---: Nov-15-2022 20:30:18: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 20:32:52: UserService.findUserById called with ["sdasdasd"]
+--- info ---: Nov-15-2022 20:32:52: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 20:33:48: UserService.findUserById called with ["sdasdasd"]
+--- info ---: Nov-15-2022 20:33:48: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 20:34:18: UserService.findUserById called with ["sdasdasd"]
+--- info ---: Nov-15-2022 20:34:18: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 20:35:21: UserService.findUserById called with ["123"]
+--- info ---: Nov-15-2022 20:35:21: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 20:36:09: UserService.findUserById called with ["123"]
+--- info ---: Nov-15-2022 20:36:09: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 20:37:48: UserService.findUserById called with ["3"]
+--- info ---: Nov-15-2022 20:37:48: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 20:37:54: UserService.findUserById called with ["3"]
+--- info ---: Nov-15-2022 20:37:54: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 20:38:04: UserService.findUserById called with ["4"]
+--- info ---: Nov-15-2022 20:38:04: UserService.findUserById, exiting 0ms
+--- info ---: Nov-15-2022 20:39:55: UserService.findUserById called with ["4"]
+--- info ---: Nov-15-2022 20:39:55: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 20:43:35: UserService.findUserById called with ["4"]
+--- info ---: Nov-15-2022 20:43:35: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 21:00:49: UserService.findUserById called with ["444"]
+--- info ---: Nov-15-2022 21:00:49: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 21:01:02: UserService.findUserById called with ["ываыва"]
+--- info ---: Nov-15-2022 21:01:02: UserService.findUserById, exiting 0ms
+--- info ---: Nov-15-2022 21:28:14: UserService.findUserById called with ["5"]
+--- info ---: Nov-15-2022 21:28:14: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 21:28:19: UserService.findUserById called with ["555"]
+--- info ---: Nov-15-2022 21:28:19: UserService.findUserById, exiting 0ms
+--- info ---: Nov-15-2022 21:28:44: UserService.findUserById called with ["sdfsdf"]
+--- info ---: Nov-15-2022 21:28:44: UserService.findUserById, exiting 1ms
+--- info ---: Nov-15-2022 21:33:13: UserService.findUserById called with ["sdfsdf"]
+--- info ---: Nov-15-2022 21:33:13: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 21:33:19: UserService.findUserById called with ["122"]
+--- info ---: Nov-15-2022 21:33:19: UserService.findUserById, exiting 0ms
+--- info ---: Nov-15-2022 21:44:45: UserService.findUserById called with ["122"]
+--- info ---: Nov-15-2022 21:44:45: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 21:50:30: UserService.findUserById called with ["12"]
+--- info ---: Nov-15-2022 21:50:30: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 21:50:35: UserService.findUserById called with ["2"]
+--- info ---: Nov-15-2022 21:50:35: UserService.findUserById, exiting 0ms
+--- info ---: Nov-15-2022 21:52:02: UserService.addNewUser called with [{"login":"anna","password":"sww3333fff","age":25}]
+--- info ---: Nov-15-2022 21:52:02: UserService.addNewUser, exiting 2ms
+--- info ---: Nov-15-2022 21:52:47: UserService.updateUser called with ["19",{"login":"anna","password":"sww3333fff121212121212","age":25}]
+--- info ---: Nov-15-2022 21:52:47: UserService.updateUser, exiting 1ms
+--- info ---: Nov-15-2022 21:53:15: UserService.getAutoSuggestUsers called with ["test",]
+--- info ---: Nov-15-2022 21:53:15: UserService.getAutoSuggestUsers, exiting 1ms
+--- error ---: Nov-15-2022 21:59:37: PUT /api/users/user/19 failed.Error status code 500, error message [object Object]
+--- error ---: Nov-15-2022 22:00:30: PUT /api/users/user/19 failed.Error status code 500, error message "age" must be less than or equal to 130
+--- info ---: Nov-15-2022 22:01:35: UserService.getAutoSuggestUsers called with ["",]
+--- info ---: Nov-15-2022 22:01:35: UserService.getAutoSuggestUsers, exiting 0ms
+--- error ---: Nov-15-2022 22:01:35: GET /api/users/search failed. Error status code 404, error message [Empty string]
+--- info ---: Nov-15-2022 22:02:21: UserService.findUserById called with ["34"]
+--- info ---: Nov-15-2022 22:02:21: UserService.findUserById, exiting 2ms
+--- error ---: Nov-15-2022 22:02:21: GET /api/users/user/34 failed. Error status code 404, error message "No such user"
+--- info ---: Nov-15-2022 22:10:56: GroupService.updateGroup called with ["9e9798f3-99b2-4352-b149-f6d0deec400e",{"name":"manager","permissions":["READ","WRITE","UPDATE"]}]
+--- info ---: Nov-15-2022 22:10:56: GroupService.updateGroup, exiting 2ms
+--- info ---: Nov-15-2022 22:11:37: GroupService.findGroupById called with ["9e9798f3"]
+--- info ---: Nov-15-2022 22:11:37: GroupService.findGroupById, exiting 2ms
+--- error ---: Nov-15-2022 22:11:37: GET /api/groups/group/9e9798f3 failed. Error status code 500, error message "invalid input syntax for type uuid: "9e9798f3""
+--- info ---: Nov-15-2022 22:12:16: GroupService.getAllGroups called with []
+--- info ---: Nov-15-2022 22:12:16: GroupService.getAllGroups, exiting 1ms
+--- info ---: Nov-15-2022 22:13:46: GroupService.addUsersToGroup called with ["36e5b356-abe2-46ad-9b13-37a97b2b7f13",]
+--- info ---: Nov-15-2022 22:13:46: GroupService.addUsersToGroup, exiting 0ms
+--- error ---: Nov-15-2022 22:13:46: POST /api/groups/addUsersToGroup failed. Error status code 500, error message "Transaction failed"
+--- info ---: Nov-15-2022 22:15:11: GroupService.addUsersToGroup called with ["36e5b356-abe2-46ad-9b13-37a97b2b7f13",]
+--- info ---: Nov-15-2022 22:15:11: GroupService.addUsersToGroup, exiting 0ms
+--- error ---: Nov-15-2022 22:15:11: POST /api/groups/addUsersToGroup failed. Error status code 500, error message "Transaction failed"
+--- info ---: Nov-15-2022 22:15:19: GroupService.addUsersToGroup called with ["36e5b356-abe2-46ad-9b13-37a97b2b7f13",[15]]
+--- info ---: Nov-15-2022 22:15:19: GroupService.addUsersToGroup, exiting 0ms
+--- info ---: Nov-15-2022 22:18:41: GroupService.findGroupById called with ["123123123"]
+--- info ---: Nov-15-2022 22:18:41: GroupService.findGroupById, exiting 1ms
+--- error ---: Nov-15-2022 22:18:41: GET /api/groups/group/123123123 failed. Error status code 500, error message "invalid input syntax for type uuid: "123123123""
+--- info ---: Nov-15-2022 22:20:13: UserService.findUserById called with ["4"]
+--- info ---: Nov-15-2022 22:20:13: UserService.findUserById, exiting 1ms
+--- error ---: Nov-15-2022 22:20:41: PUT /api/users/user/19 failed. Error status code 500, error message "[object Object]"
+--- info ---: Nov-15-2022 22:38:13: UserService.findUserById called with ["4"]
+--- info ---: Nov-15-2022 22:38:13: UserService.findUserById, exiting 2ms
+--- info ---: Nov-15-2022 22:39:31: Listening on port 3001
+--- info ---: Nov-15-2022 22:41:52: Listening on port 3001
+--- info ---: Nov-15-2022 22:44:08: Listening on port 3001
+--- info ---: Nov-15-2022 22:45:35: Listening on port 3001
+--- info ---: Nov-15-2022 22:46:00: Listening on port 3001
+--- info ---: Nov-15-2022 22:46:06: Listening on port 3001
+--- info ---: Nov-15-2022 22:46:41: Listening on port 3001
+--- error ---: Nov-15-2022 22:46:46: Unhandled rejection reason: Error: Ran out of coffee
+--- info ---: Nov-15-2022 22:48:36: Listening on port 3001
+--- error ---: Nov-15-2022 22:48:41: Unhandled rejection reason: Error: Ran out of coffee
+--- info ---: Nov-15-2022 22:49:24: Listening on port 3001
+--- error ---: Nov-15-2022 22:49:29: Unhandled rejection reason: Error: Ran out of coffee
+--- info ---: Nov-15-2022 22:49:44: Listening on port 3001
+--- error ---: Nov-15-2022 22:49:49: Unhandled : Error: Ran out of coffee
+--- info ---: Nov-15-2022 22:50:26: Listening on port 3001
+--- info ---: Nov-15-2022 22:53:18: Listening on port 3001
