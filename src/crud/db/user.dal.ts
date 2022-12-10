@@ -54,3 +54,11 @@ export const getAll = async (filters?: UsersFilters): Promise<UserOutput[]> => {
   });
   return users;
 };
+
+export const findByName = async (name: string): Promise<UserOutput> => {
+  const user = await UserModel.findOne({ where: { login: name } });
+  if (user == null) {
+    throw new CustomException(NO_USER_MSG, 404);
+  }
+  return user.toJSON();
+};

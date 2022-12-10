@@ -116,3 +116,34 @@
 --- error ---: Nov-15-2022 22:49:49: Unhandled : Error: Ran out of coffee
 --- info ---: Nov-15-2022 22:50:26: Listening on port 3001
 --- info ---: Nov-15-2022 22:53:18: Listening on port 3001
+--- info ---: Dec-10-2022 17:29:01: Listening on port 3001
+--- info ---: Dec-10-2022 17:34:17: AuthService.login called with ["ivan","ivanov"]
+--- info ---: Dec-10-2022 17:34:17: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:34:17: UserService.findUserByLogin, exiting 3ms
+--- info ---: Dec-10-2022 17:34:17: AuthService.login, exiting 3ms
+--- info ---: Dec-10-2022 17:34:47: AuthService.login called with ["ivan","ivanov1"]
+--- info ---: Dec-10-2022 17:34:47: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:34:47: UserService.findUserByLogin, exiting 1ms
+--- info ---: Dec-10-2022 17:34:47: AuthService.login, exiting 2ms
+--- info ---: Dec-10-2022 17:38:41: Listening on port 3001
+--- info ---: Dec-10-2022 17:39:33: AuthService.login called with ["ivan","ivanov"]
+--- info ---: Dec-10-2022 17:39:33: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:39:33: UserService.findUserByLogin, exiting 2ms
+--- info ---: Dec-10-2022 17:39:33: AuthService.login, exiting 2ms
+--- info ---: Dec-10-2022 17:40:15: UserService.findUserById called with ["9"]
+--- info ---: Dec-10-2022 17:40:15: UserService.findUserById, exiting 0ms
+--- info ---: Dec-10-2022 17:41:52: Listening on port 3001
+--- info ---: Dec-10-2022 17:43:18: Listening on port 3001
+--- info ---: Dec-10-2022 17:55:19: Listening on port 3001
+--- info ---: Dec-10-2022 17:55:39: AuthService.login called with ["ivan","ivanov"]
+--- info ---: Dec-10-2022 17:55:39: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:55:39: UserService.findUserByLogin, exiting 2ms
+--- info ---: Dec-10-2022 17:55:39: AuthService.login, exiting 3ms
+--- info ---: Dec-10-2022 17:55:49: UserService.findUserById called with ["9"]
+--- info ---: Dec-10-2022 17:55:49: UserService.findUserById, exiting 1ms
+--- info ---: Dec-10-2022 17:58:45: AuthService.login called with ["sergey","password"]
+--- info ---: Dec-10-2022 17:58:45: UserService.findUserByLogin called with ["sergey"]
+--- info ---: Dec-10-2022 17:58:45: UserService.findUserByLogin, exiting 0ms
+--- info ---: Dec-10-2022 17:58:45: AuthService.login, exiting 0ms
+--- info ---: Dec-10-2022 17:58:55: UserService.findUserById called with ["8"]
+--- info ---: Dec-10-2022 17:58:55: UserService.findUserById, exiting 0ms
