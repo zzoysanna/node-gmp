@@ -3,7 +3,9 @@ import cors from 'cors';
 import subroutes from './routes';
 import { clientErrorHandler } from './middleware';
 import logger from './utils/logger';
+import * as dotenv from 'dotenv'
 
+dotenv.config();
 const app = express();
 const port = process.env.PORT ?? 3000;
 const corsConfig = {
