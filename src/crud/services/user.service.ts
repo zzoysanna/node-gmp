@@ -20,6 +20,11 @@ export default class UserService {
     return user ? UserMapper.toDomain(user) : undefined;
   }
 
+  static async findUserByLogin(name: string): Promise<User | undefined> {
+    const user = await userDal.findByName(name);
+    return user ? UserMapper.toDomain(user) : undefined;
+  }
+
   static async addNewUser(userData: UserInput): Promise<User> {
     return UserMapper.toDomain(
       await userDal.create(userData),
