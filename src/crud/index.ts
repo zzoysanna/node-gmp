@@ -1,17 +1,19 @@
 import express from 'express';
+import cors from 'cors';
 import subroutes from './routes';
 import { clientErrorHandler } from './middleware';
 import logger from './utils/logger';
-import cors from 'cors';
+import * as dotenv from 'dotenv'
 
+dotenv.config();
 const app = express();
 const port = process.env.PORT ?? 3000;
 const corsConfig = {
-  origin: "*",
-  methods: "GET,HEAD",
+  origin: '*',
+  methods: 'GET,HEAD',
   preflightContinue: false,
-  optionsSuccessStatus: 204
-}
+  optionsSuccessStatus: 204,
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

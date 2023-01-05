@@ -147,3 +147,8 @@
 --- info ---: Dec-10-2022 17:58:45: AuthService.login, exiting 0ms
 --- info ---: Dec-10-2022 17:58:55: UserService.findUserById called with ["8"]
 --- info ---: Dec-10-2022 17:58:55: UserService.findUserById, exiting 0ms
+--- info ---: Dec-26-2022 20:52:26: Listening on port 3001
+--- info ---: Dec-26-2022 20:53:01: Listening on port 3001
+--- info ---: Dec-26-2022 20:54:59: Listening on port 3001
+--- info ---: Dec-26-2022 20:55:49: Listening on port 3001
+--- info ---: Dec-26-2022 20:57:37: Listening on port 3001
