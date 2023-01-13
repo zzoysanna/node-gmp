@@ -11,3 +11,7 @@
 --- error ---: Nov-15-2022 22:48:41: Unhandled rejection reason: Error: Ran out of coffee
 --- error ---: Nov-15-2022 22:49:29: Unhandled rejection reason: Error: Ran out of coffee
 --- error ---: Nov-15-2022 22:49:49: Unhandled : Error: Ran out of coffee
+--- error ---: Jan-13-2023 21:25:07: POST /api/auth/ failed. Error status code 500, error message "[object Object]"
+--- error ---: Jan-13-2023 21:27:08: POST /api/auth/ failed. Error status code 404, error message "No such user"
+--- error ---: Jan-13-2023 21:27:15: POST /api/auth/ failed. Error status code 500, error message "[object Object]"
+--- error ---: Jan-13-2023 21:27:23: POST /api/auth/ failed. Error status code 500, error message "[object Object]"
