@@ -116,3 +116,61 @@
 --- error ---: Nov-15-2022 22:49:49: Unhandled : Error: Ran out of coffee
 --- info ---: Nov-15-2022 22:50:26: Listening on port 3001
 --- info ---: Nov-15-2022 22:53:18: Listening on port 3001
+--- info ---: Dec-10-2022 17:29:01: Listening on port 3001
+--- info ---: Dec-10-2022 17:34:17: AuthService.login called with ["ivan","ivanov"]
+--- info ---: Dec-10-2022 17:34:17: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:34:17: UserService.findUserByLogin, exiting 3ms
+--- info ---: Dec-10-2022 17:34:17: AuthService.login, exiting 3ms
+--- info ---: Dec-10-2022 17:34:47: AuthService.login called with ["ivan","ivanov1"]
+--- info ---: Dec-10-2022 17:34:47: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:34:47: UserService.findUserByLogin, exiting 1ms
+--- info ---: Dec-10-2022 17:34:47: AuthService.login, exiting 2ms
+--- info ---: Dec-10-2022 17:38:41: Listening on port 3001
+--- info ---: Dec-10-2022 17:39:33: AuthService.login called with ["ivan","ivanov"]
+--- info ---: Dec-10-2022 17:39:33: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:39:33: UserService.findUserByLogin, exiting 2ms
+--- info ---: Dec-10-2022 17:39:33: AuthService.login, exiting 2ms
+--- info ---: Dec-10-2022 17:40:15: UserService.findUserById called with ["9"]
+--- info ---: Dec-10-2022 17:40:15: UserService.findUserById, exiting 0ms
+--- info ---: Dec-10-2022 17:41:52: Listening on port 3001
+--- info ---: Dec-10-2022 17:43:18: Listening on port 3001
+--- info ---: Dec-10-2022 17:55:19: Listening on port 3001
+--- info ---: Dec-10-2022 17:55:39: AuthService.login called with ["ivan","ivanov"]
+--- info ---: Dec-10-2022 17:55:39: UserService.findUserByLogin called with ["ivan"]
+--- info ---: Dec-10-2022 17:55:39: UserService.findUserByLogin, exiting 2ms
+--- info ---: Dec-10-2022 17:55:39: AuthService.login, exiting 3ms
+--- info ---: Dec-10-2022 17:55:49: UserService.findUserById called with ["9"]
+--- info ---: Dec-10-2022 17:55:49: UserService.findUserById, exiting 1ms
+--- info ---: Dec-10-2022 17:58:45: AuthService.login called with ["sergey","password"]
+--- info ---: Dec-10-2022 17:58:45: UserService.findUserByLogin called with ["sergey"]
+--- info ---: Dec-10-2022 17:58:45: UserService.findUserByLogin, exiting 0ms
+--- info ---: Dec-10-2022 17:58:45: AuthService.login, exiting 0ms
+--- info ---: Dec-10-2022 17:58:55: UserService.findUserById called with ["8"]
+--- info ---: Dec-10-2022 17:58:55: UserService.findUserById, exiting 0ms
+--- info ---: Dec-26-2022 20:52:26: Listening on port 3001
+--- info ---: Dec-26-2022 20:53:01: Listening on port 3001
+--- info ---: Dec-26-2022 20:54:59: Listening on port 3001
+--- info ---: Dec-26-2022 20:55:49: Listening on port 3001
+--- info ---: Dec-26-2022 20:57:37: Listening on port 3001
+--- info ---: Jan-13-2023 21:19:25: Listening on port 3001
+--- info ---: Jan-13-2023 21:20:50: Listening on port 3001
+--- info ---: Jan-13-2023 21:21:24: Listening on port 3001
+--- error ---: Jan-13-2023 21:25:07: POST /api/auth/ failed. Error status code 500, error message "[object Object]"
+--- info ---: Jan-13-2023 21:25:43: AuthService.login called with ["NickEkk","dfgk444m"]
+--- info ---: Jan-13-2023 21:25:43: UserService.findUserByLogin called with ["NickEkk"]
+--- info ---: Jan-13-2023 21:25:43: UserService.findUserByLogin, exiting 2ms
+--- info ---: Jan-13-2023 21:25:43: AuthService.login, exiting 3ms
+--- info ---: Jan-13-2023 21:26:24: UserService.findUserById called with ["8"]
+--- info ---: Jan-13-2023 21:26:24: UserService.findUserById, exiting 1ms
+--- info ---: Jan-13-2023 21:26:29: UserService.findUserById called with ["2"]
+--- info ---: Jan-13-2023 21:26:29: UserService.findUserById, exiting 0ms
+--- info ---: Jan-13-2023 21:27:08: AuthService.login called with ["1111","dfgk444m"]
+--- info ---: Jan-13-2023 21:27:08: UserService.findUserByLogin called with ["1111"]
+--- info ---: Jan-13-2023 21:27:08: UserService.findUserByLogin, exiting 0ms
+--- info ---: Jan-13-2023 21:27:08: AuthService.login, exiting 1ms
+--- error ---: Jan-13-2023 21:27:08: POST /api/auth/ failed. Error status code 404, error message "No such user"
+--- error ---: Jan-13-2023 21:27:15: POST /api/auth/ failed. Error status code 500, error message "[object Object]"
+--- error ---: Jan-13-2023 21:27:23: POST /api/auth/ failed. Error status code 500, error message "[object Object]"
+--- info ---: Jan-13-2023 21:31:00: Listening on port 3001
+--- info ---: Jan-13-2023 21:31:20: Listening on port 3001
+--- info ---: Jan-13-2023 21:33:23: Listening on port 3001
